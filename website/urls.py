@@ -19,7 +19,7 @@ urlpatterns = [
     ),
     path(
         "signup/",
-        views.RegistrationView.as_view(),
+        views.register_user,
         name="registration",
     ),
 ]

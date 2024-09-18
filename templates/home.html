@@ -1,8 +1,43 @@
 {% extends 'base.html' %}
 {% block content %}
-  <div class="col-md-6 offset-md-3">
+  <div>
     {% if user.is_authenticated %}
-      <h1>Hello World</h1>
+      <h1>Records</h1>
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Platform</th>
+            <th scope="col">Platform Email</th>
+            <th scope="col">Profile</th>
+            <th scope="col">Purchased Date</th>
+            <th scope="col">Month</th>
+            <th scope="col">Expiry Date</th>
+            <th scope="col">Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% if records %}
+            {% for record in records %}
+              <tr>
+                <td>
+                  {{ record.first_name }}
+                  {{ record.last_name }}
+                </td>
+                <td>{{ record.platform.Platform }}</td>
+                <td>{{ record.platform.email }}</td>
+                <td>{{ record.platform.profile }}</td>
+                <td>{{ record.created_at }}</td>
+                <td>{{ record.useful_month }}</td>
+                <td>{{ record.expiry_date }}</td>
+                <td>{{ record.status }}</td>
+                <
+              </tr>
+              <br>
+            {% endfor %}
+          {% endif %}
+        </tbody>
+      </table>
     {% else %}
       <h1>Login</h1>
       <br>
